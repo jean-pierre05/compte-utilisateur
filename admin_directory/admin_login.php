@@ -4,9 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Connexion Administrateur</title>
+    <link rel="stylesheet" href="../../useful/bootstrap-4.6.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="style_admin.css">
 
 <body>
+
+<?php 
+            include "./navbar.php";
+        ?>
+
 <?php
 
     $erreur = null;
@@ -18,7 +26,7 @@
             if ($_POST['pseudo'] === 'Karim' && password_verify($_POST['password'], $password)) {
                 session_start();
                 $_SESSION['connecte'] = 1; // stoqué son état de connexion
-                 header("Location: index.php");//redirection vers la page d'acceuil
+                 header("Location: ../../dashboardhome.php");//redirection vers la page d'acceuil
                     exit();
             } else {
             
@@ -29,7 +37,7 @@
 ?>
 
     <div class="form-container">
-        <h2>Connexion Administrateur</h2>
+        <h2 style="margin-bottom:50px;">Responsable</h2>
         <form id="admin-login-form" action="admin_login.php" method="POST">
             <label for="admin-pseudo">PSEUDO:</label>
             <input type="pseudo" id="admin-pseudo" name="pseudo" required>

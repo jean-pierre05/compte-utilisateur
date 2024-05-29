@@ -5,13 +5,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM client WHERE email = ?";
+    $sql = "SELECT * FROM utilisateur WHERE email = ?";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$email]);
     $user = $stmt->fetch();
 
 
-    $verif = $user['mot_de_passe'];
+    $verif = $user['password'];
     echo $verif;
     if ($user && password_verify($verif, $password )) {
         echo "Logged in successfully!";

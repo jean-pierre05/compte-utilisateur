@@ -9,9 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
 
 
-    $sql = "INSERT INTO client (nom,prenom, email, mot_de_passe,numero_de_telephone,addresse_de_livraison) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO utilisateur (nom,prenom, email, password ) VALUES (?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$name, $prenom, $email, $password, $number, $addresse]);
+    $stmt->execute([$name, $prenom, $email, $password]);
 
     echo "User registered successfully!";
 
